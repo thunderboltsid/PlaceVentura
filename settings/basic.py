@@ -26,6 +26,7 @@ INSTALLED_APPS += ("djcelery_email",)
 # Own apps
 INSTALLED_APPS += (
     'apps.accounts',
+    'apps.quests',
     'common',
 )
 from conf.static import *

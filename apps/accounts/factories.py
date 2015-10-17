@@ -37,28 +37,5 @@ class AccountFactory(factory.DjangoModelFactory):
 
 
 
-def get_anonymous_user_instance(User):
-    return Account(email="ANA@ANsA.ANA",first_name="anon",last_name="ymous")
-
-class ParticipationFactory(factory.DjangoModelFactory):
-    class Meta:
-        model = 'accounts.Participation'
-        django_get_or_create = ('group', 'user')
-
-    user = factory.SubFactory('apps.accounts.factories.AccountFactory')
-    group = factory.SubFactory('apps.accounts.factories.GroupFactory')
-    confirmed = False
 
 
-class GroupFactory(factory.DjangoModelFactory):
-    class Meta:
-        model = 'accounts.Group'
-        django_get_or_create = ('name',)
-
-    name = factory.sequence(lambda x: str(x))
-    applicable = factory.SubFactory('apps.events.factories.BaseEventFactory')
-
-    @factory.post_generation
-    def create_participations(self, bla, blabla):
-        for i in range(5):
-            ParticipationFactory(group=self)
