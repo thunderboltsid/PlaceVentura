@@ -40,6 +40,7 @@ INSTALLED_APPS += ("djcelery_email",)
 INSTALLED_APPS += (
     'apps.accounts',
     'apps.quests',
+    'apps.badges',
     'common',
 )
 from conf.static import *
