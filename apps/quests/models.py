@@ -13,3 +13,4 @@ class Quest(Model):
     description = TextField(null=True,blank=True)
     users= ManyToManyField('accounts.Account',null=True,blank=True,through='quests.Response')
 
+
