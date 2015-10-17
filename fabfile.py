@@ -13,8 +13,11 @@ def deploy():
     with cd("/vagrant/"):
         run("git stash")
         run("git pull")
+        run("python manage.py migrate --settings=settings.deployment auth")
+        run("python manage.py migrate --settings=settings.deployment accounts")
         run("python manage.py migrate --settings=settings.deployment")
-        run("python manage.py collectstatic --no-input")
+        run("rm -rf serve")
+        run("python manage.py collectstatic --noinput")
         run("service supervisor restart")
     run("chmod 777 -R /vagrant")
 def remove_migrations():
