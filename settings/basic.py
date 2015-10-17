@@ -45,7 +45,7 @@ INSTALLED_APPS += ("djcelery_email",)
 from conf.static import *
 
 LOGIN_URL = '/login-form/'
-LOGIN_REDIRECT_URL = '/logged-in/'
+LOGIN_REDIRECT_URL = '/quests/'
 LOGIN_ERROR_URL = '/login-error/'
 STATICFILES_FINDERS += (
     'compressor.finders.CompressorFinder',
