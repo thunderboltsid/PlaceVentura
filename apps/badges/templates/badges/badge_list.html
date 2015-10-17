@@ -3,7 +3,7 @@
 
 {% block content %}
     <img src="{% static 'common/questmenue.svg' %}"
-         style=" position:fixed;
+         style="position:fixed;
          width:100%;
          top:0;
          left:0;
@@ -16,11 +16,8 @@
                 <md-card style="padding:10px; width: 60vw; cursor: pointer; opacity: 0.7"
                          onclick="window.location.href='/badges/{{ object.id }}'">
                     <div layout="column">
-                        <h3 class="md-title">{{ object.title }}</h3>
-
+                        <h3 class="md-title">{{ object.name }}</h3>
                         <p class="md-body-1">{{ object.description }}</p>
-
-                        <p class="md-caption">{{ object.users.count }} users already completed this quest</p>
                     </div>
                 </md-card>
             {% endfor %}

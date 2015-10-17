@@ -6,4 +6,4 @@ class Badge(Model):
     name = CharField(max_length=64, null=True, blank=True)
     description = CharField(max_length=160, null=True, blank=True)
     thumbnail = ImageField(upload_to="users",null=True,blank=True,default="/media/cvs/example.jpg")
-    user = ForeignKey("accounts.Account", null=True)
+    user = ManyToManyField("accounts.Account")

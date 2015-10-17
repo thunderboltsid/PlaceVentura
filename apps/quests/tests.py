@@ -34,7 +34,7 @@ def test_quest_list_contains_objects():
     url = reverse_lazy('quest-list')
     c=Client()
     response=c.get(url)
-    assert len(response.context["object_list"])==2, "Quest List contains incorrect amount of quests"
+    assert len(response.context["object_list"])==2, "Quest List contains incorrect amount of badges"
 @pytest.mark.django_db
 def test_quest_detail_accessible():
     obj=QuestFactory()
