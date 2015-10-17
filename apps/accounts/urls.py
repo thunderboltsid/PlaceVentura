@@ -10,6 +10,6 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     url('^/?$', AccountList.as_view(),name='account-list'),
-    url('^/(?P<pk>[-\w]+)/?$', AccountDetail.as_view(),name='account-detail'),
+    url('^(?P<pk>[-\w]+)/?$', AccountDetail.as_view(),name='account-detail'),
 )
 
