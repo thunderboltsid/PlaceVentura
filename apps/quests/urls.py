@@ -1,16 +1,15 @@
-from django.conf import settings
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
 from django.contrib import admin
-from django.views.generic import RedirectView, TemplateView
-from apps import quests
-from apps.quests.views import QuestList
 
-from settings.conf.media import MEDIA_ROOT
+from apps.quests.views import QuestList, QuestDetail
 
 admin.autodiscover()
 # App includes
+
+
 urlpatterns = patterns(
     '',
     url('^/?$', QuestList.as_view(),name='quest-list'),
+    url('^/(?P<pk>[-\w]+)/?$', QuestDetail.as_view(),name='quest-detail'),
 )
 

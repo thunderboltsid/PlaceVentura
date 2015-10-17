@@ -19,3 +19,18 @@ def test_quest_list_accessible():
     c=Client()
     response=c.get(url)
     assert response.status_code==200, "Quest List was unreachable"
+@pytest.mark.django_db
+def test_quest_list_contains_objects():
+    obj=QuestFactory()
+    obj=QuestFactory()
+    url = reverse_lazy('quest-list')
+    c=Client()
+    response=c.get(url)
+    assert len(response.context["object_list"])==2, "Quest List contains incorrect amount of quests"
+@pytest.mark.django_db
+def test_quest_detail_accessible():
+    obj=QuestFactory()
+    url = reverse_lazy('quest-detail',kwargs={"pk":obj.id})
+    c=Client()
+    response=c.get(url)
+    assert response.status_code==200, "Quest detail was unreachable"
