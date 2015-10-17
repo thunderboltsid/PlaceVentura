@@ -5,38 +5,38 @@ angular.module('eestec.common.controllers', [
     'ngMaterial',
     'uiGmapgoogle-maps'
 ])
-    .controller('activitiesController', ["$scope", "Team", "Workshop",
-        function ($scope, Team, Workshop) {
-            $scope.teams = Team.query();
-            $scope.events = Workshop.query();
-        }])
-    .controller('networkController', ["$scope", "uiGmapGoogleMapApi", "Commitment",
-        function ($scope, uiGmapGoogleMapApi, Commitment) {
-            $scope.map = "";
-            $scope.events = {
-                "scroll": function () {
-                    // Override the scroll event so it doesnt zoom the map.
-                    // This is important for mobile devices.
-                    return;
-                }
-            };
-            uiGmapGoogleMapApi.then(function (maps) {
-                $scope.map = {
-                    center: {
-                        latitude: 48.1333,
-                        longitude: 11.56
-                    },
-                    zoom: 5
-                };
-            });
-            $scope.commitments = Commitment.query(function (result) {
-                $scope.markers = result.filter(function (x) {
-                    return x.locations.length;
-                }).map(function (x) {
-                    return JSON.parse(JSON.stringify(x.locations[0]));
-                });
-            });
-        }])
+    //.controller('activitiesController', ["$scope", "Team", "Workshop",
+    //    function ($scope, Team, Workshop) {
+    //        $scope.teams = Team.query();
+    //        $scope.events = Workshop.query();
+    //    }])
+    //.controller('networkController', ["$scope", "uiGmapGoogleMapApi", "Commitment",
+    //    function ($scope, uiGmapGoogleMapApi, Commitment) {
+    //        $scope.map = "";
+    //        $scope.events = {
+    //            "scroll": function () {
+    //                // Override the scroll event so it doesnt zoom the map.
+    //                // This is important for mobile devices.
+    //                return;
+    //            }
+    //        };
+    //        uiGmapGoogleMapApi.then(function (maps) {
+    //            $scope.map = {
+    //                center: {
+    //                    latitude: 48.1333,
+    //                    longitude: 11.56
+    //                },
+    //                zoom: 5
+    //            };
+    //        });
+    //        $scope.commitments = Commitment.query(function (result) {
+    //            $scope.markers = result.filter(function (x) {
+    //                return x.locations.length;
+    //            }).map(function (x) {
+    //                return JSON.parse(JSON.stringify(x.locations[0]));
+    //            });
+    //        });
+    //    }])
     .controller('toolbarController', [
         "$scope", "$location", "$mdDialog", "$mdSidenav", "$http",
         function ($scope, $location, $mdDialog, $mdSidenav, $http) {
@@ -49,7 +49,7 @@ angular.module('eestec.common.controllers', [
             };
         }])
     .controller('sidenavcontroller', [
-        '$scope',"$location",
+        '$scope', "$location",
         function ($scope, $location) {
             $scope.navigation = function (name) {
                 $location.path(name).replace();
@@ -116,6 +116,9 @@ angular.module('eestec.common.controllers', [
     .controller('contentController', [
         '$scope', 'Content', "$q",
         function ($scope, Content, $q) {
+            $scope.redirectTo = function (url) {
+                $location.path(url);
+            };
             CONTENTLOADED = $q.defer();
             $scope.contents = Content.query(function () {
                 $scope.content = function (name) {
