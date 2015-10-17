@@ -1,1 +1,16 @@
-{% extends 'base/base.html'
+{% extends 'base/base.html' %}
+{% block content %}
+    <div layout="column">
+        <md-card style="padding:10px; width: 80vw;">
+            <div layout="column">
+                <h1 class="md-display-1">{{ object.title }}</h1>
+
+                <p class="md-body-2">Type: {{ object.type }}</p>
+
+                <p class="md-body-2">Description : {{ object.description }}</p>
+
+                <p class="md-body-1">{{ object.users.count }} users already completed this quest</p>
+            </div>
+        </md-card>
+    </div>
+{% endblock %}

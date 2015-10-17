@@ -1,1 +1,16 @@
-{% extends 'base/base.html'
+{% extends 'base/base.html' %}
+{% block content %}
+    <div layout="column">
+        {% for object in object_list %}
+            <md-card style="padding:10px; width: 80vw; cursor: pointer" onclick="window.location.href='/quests/{{ object.id }}'">
+                <div layout="column">
+                    <h3 class="md-title">{{ object.title }}</h3>
+
+                    <p class="md-body-1">{{ object.description }}</p>
+
+                    <p class="md-caption">{{ object.users.count }} users already completed this quest</p>
+                </div>
+            </md-card>
+        {% endfor %}
+    </div>
+{% endblock %}

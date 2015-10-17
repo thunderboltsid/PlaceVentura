@@ -10,6 +10,6 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     url('^/?$', QuestList.as_view(),name='quest-list'),
-    url('^/(?P<pk>[-\w]+)/?$', QuestDetail.as_view(),name='quest-detail'),
+    url('^(?P<pk>[-\w]+)/?$', QuestDetail.as_view(),name='quest-detail'),
 )
 
