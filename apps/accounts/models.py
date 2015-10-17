@@ -55,7 +55,6 @@ class EestecerManager(BaseUserManager):
                           date_joined=now, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
-        user.update_forum(password)
         return user
 
     def create_user(self, email, password=None, **extra_fields):

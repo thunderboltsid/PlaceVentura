@@ -24,7 +24,6 @@ class AccountFactory(factory.DjangoModelFactory):
     password = factory.PostGenerationMethodCall('set_password',
                                                 'defaultpassword')
     email = factory.sequence(lambda x: str(randint(1,100)) + "a@b.de" + str(x))
-    birthday = datetime.datetime.today().date()
     gender = "m"
 
     # Information important for events
