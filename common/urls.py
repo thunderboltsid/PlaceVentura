@@ -12,6 +12,7 @@ urlpatterns = patterns(
     '',
     url(r'^quests/', include('apps.quests.urls')),
     url(r'^people/', include('apps.accounts.urls')),
+    url(r'^badges/', include('apps.badges.urls')),
 )
 urlpatterns += patterns(
     '',
