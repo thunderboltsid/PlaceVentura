@@ -1,4 +1,14 @@
 {% extends 'base/base.html' %}
+{% load static %}
 {% block content %}
+    <img src="{% static 'common/background.svg' %}"
+         style="
+         position:fixed;
+         width:100vw;
+         height:100vh;
+         top:0;
+         left:0;">
 
+    </img>
+    <md-button class="md-primary md-raised" ng-click="">Adventure Time</md-button>
 {% endblock %}

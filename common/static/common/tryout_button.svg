@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 640 1136" style="enable-background:new 0 0 640 1136;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{fill:#A67C52;}
+	.st2{fill:none;stroke:#42210B;stroke-width:7;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#2F6D07;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#875815;stroke-width:7;stroke-miterlimit:10;}
+	.st5{fill:#D2D860;}
+	.st6{fill:#7F4817;}
+	.st7{fill:#6FB533;}
+	.st8{fill:none;stroke:#2F6D07;stroke-width:2;stroke-miterlimit:10;}
+	.st9{fill:#C6884F;}
+	.st10{fill:#EDC57E;}
+	.st11{fill:none;}
+	.st12{fill:#845A3D;}
+	.st13{font-family:'HPSimplified-Regular';}
+	.st14{font-size:44px;}
+</style>
+<g id="Ebene_2" class="st0">
+</g>
+<g id="Ebene_1">
+	<path class="st1" d="M-402.6,10.6h2.6c0.4,0,0.6-0.3,0.6-0.6v0c0-0.4-0.3-0.6-0.6-0.6h-2.6c-0.4,0-0.6,0.3-0.6,0.6v0
+		C-403.3,10.3-403,10.6-402.6,10.6z"/>
+	<line class="st2" x1="-321.2" y1="260.6" x2="-319.9" y2="261.9"/>
+	<line class="st3" x1="-166.1" y1="424.7" x2="-149.4" y2="450.3"/>
+	<g>
+		<path class="st4" d="M557.1,507.7"/>
+		<path class="st3" d="M545.5,500.8"/>
+		<g>
+			<path class="st5" d="M542.9,725H180.2c-11.4,0-20.7-9.3-20.7-20.7v-35.5c0-11.4,9.3-20.7,22.7-20.7h362.6
+				c9.4,0,18.7,9.3,18.7,20.7v35.5C563.6,715.7,554.3,725,542.9,725z"/>
+			<path class="st6" d="M540.2,824.5H183.8c-6.2,0-11.3-5.1-11.3-11.3V683.8c0-6.2,5.1-11.3,11.3-11.3h356.3
+				c6.2,0,11.3,5.1,11.3,11.3v129.4C551.5,819.4,546.4,824.5,540.2,824.5z"/>
+			<path class="st7" d="M542.6,732.5H181c-11.5,0-21-9.4-21-21v-37c0-11.5,9.4-21,21-21h361.6c11.5,0,21,9.4,21,21v37
+				C563.6,723.1,554.2,732.5,542.6,732.5z"/>
+			<path class="st4" d="M167.4,681.1"/>
+			<path class="st3" d="M179.3,677.8"/>
+			<line class="st8" x1="173.5" y1="676.5" x2="553.5" y2="677"/>
+			<path class="st9" d="M536.8,815.6H188c-10.8,0-19.6-8.8-19.6-19.6V687.5c0-10.8,8.8-19.6,19.6-19.6h348.7
+				c10.8,0,19.6,8.8,19.6,19.6v108.5C556.4,806.7,547.6,815.6,536.8,815.6z"/>
+			<path class="st10" d="M514.7,793.3H210.5c-4.8,0-8.8-4-8.8-8.8v-90.5c0-4.8,4-8.8,8.8-8.8h304.2c4.8,0,8.8,4,8.8,8.8v90.5
+				C523.5,789.4,519.6,793.3,514.7,793.3z"/>
+		</g>
+	</g>
+	<rect x="191" y="695" class="st11" width="347" height="136"/>
+	<text transform="matrix(1 0 0 1 270.1216 726.5913)"><tspan x="0" y="0" class="st12 st13 st14">Adventure</tspan><tspan x="43.4" y="52.8" class="st12 st13 st14">Time!</tspan></text>
+</g>
+</svg>
