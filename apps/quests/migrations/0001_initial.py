@@ -24,13 +24,13 @@ class Migration(migrations.Migration):
             name='Response',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('quest', models.ForeignKey(to='quests.Quest')),
+                ('quest', models.ForeignKey(to='badges.Quest')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(
             model_name='quest',
             name='users',
-            field=models.ManyToManyField(to=settings.AUTH_USER_MODEL, null=True, through='quests.Response', blank=True),
+            field=models.ManyToManyField(to=settings.AUTH_USER_MODEL, null=True, through='badges.Response', blank=True),
         ),
     ]

@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+{% load thumbnail %}
+{% block content %}
+    <div layout="column">
+        <md-card style="padding:10px; width: 80vw;">
+            <div layout="column">
+                {% block pictures %}
+                    {% thumbnail object.thumbnail "375x225" crop="center" as im %}
+                        <img alt="{{ object }}" src="{{ im.url }}" width="{{ im.width }}" height="
+        {{ im.height }}">
+                    {% endthumbnail %}
+                {% endblock %}
+
+                <h1 class="md-display-1">{{ object.name }}</h1>
+
+                <p class="md-body-2">Description : {{ object.description }}</p>
+
+            </div>
+        </md-card>
+    </div>
+{% endblock %}
