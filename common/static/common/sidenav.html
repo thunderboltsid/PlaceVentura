@@ -1,0 +1,13 @@
+<md-list ng-controller="sidenavcontroller">
+    <md-item ng-repeat="section in sections">
+        {{ section.name }}
+        <md-list ng-repeat="link in section.links">
+            <md-item>
+                <md-button ng-click="navigation( link.href);">
+                    {{ link.title }}
+                </md-button>
+            </md-item>
+        </md-list>
+    </md-item>
+</md-list>
+
