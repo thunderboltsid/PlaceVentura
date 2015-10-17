@@ -8,16 +8,10 @@
 </head>
 
 <body ng-app="eestec" ng-controller='appCtrl'>
-<md-toolbar id="navbar" class="md-menu-toolbar" layout="row"
-            layout-align="flex-start center" ng-controller="toolbarController">
-    <a flex href="/#/"><img id="logo" src="{% static 'common/Placeholder.jpg' %}"/></a>
-    <span>{{ name }}</span>
-</md-toolbar>
 
-<md-content ng-controller="contentController">
+<md-content style="opacity: 0.9" ng-controller="contentController">
     {% block content %}
     {% endblock %}
-    <footer style="height:100px;background-color: #838383"></footer>
 </md-content>
 {% verbatim %}
     <script type="text/javascript" id="{{ name }}">

@@ -1,8 +1,18 @@
 {% extends 'base/base.html' %}
+{% load static %}
+
 {% block content %}
-    <div layout="column">
+    <img src="{% static 'common/questmenue.svg' %}"
+         style="
+         position:fixed;
+         width:100%;
+         top:0;
+         left:0;
+         z-index: -1">
+    </img>
+    <div layout="column" style="margin-top: 20%">
         {% for object in object_list %}
-            <md-card style="padding:10px; width: 80vw; cursor: pointer" onclick="window.location.href='/quests/{{ object.id }}'">
+            <md-card style="padding:10px; width: 60vw; cursor: pointer; opacity: 0.7" onclick="window.location.href='/quests/{{ object.id }}'">
                 <div layout="column">
                     <h3 class="md-title">{{ object.title }}</h3>
 
