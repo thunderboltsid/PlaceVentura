@@ -35,7 +35,6 @@ INSTALLED_APPS += (
     'sorl.thumbnail',
     'corsheaders',
     'rest_framework',
-    'guardian',
     'debug_toolbar',
     'django_statsd',
 )
