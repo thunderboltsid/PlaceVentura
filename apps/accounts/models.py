@@ -46,8 +46,6 @@ class EestecerManager(BaseUserManager):
         Creates and saves a User with the given email and password.
         """
         now = timezone.now()
-        if not email:
-            raise ValueError('The given email must be set')
         email = self.normalize_email(email)
         user = self.model(email=email,
                           is_staff=is_staff, is_active=True,
@@ -100,8 +98,6 @@ TSHIRT_SIZE = (('mxs', 'Male XS'), ('ms', 'Male S'), ('mm', 'Male M'), ('ml', 'M
 
 class Account(AbstractBaseUser, PermissionsMixin):
     #Basic Information
-    def name(self):
-        return self.get_full_name()
     thumbnail = models.ImageField(upload_to="users",null=True,blank=True,default="/media/cvs/example.jpg")
     description = models.TextField(blank=True, null=True)
     #Contact information
