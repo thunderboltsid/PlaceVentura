@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load compress %}
+{% load static %}
+{% include 'base/head/meta.html' %}
+<!-- Page title-->
+<title>
+    {% block page_title %}
+        EESTEC - Electrical Engineering Students' European Association
+    {% endblock %}
+</title>
+<!-- Assets-->
+<link rel="image_src" href="{% static 'enet/img/logo_square.png' %}"/>
+
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{%static "common/_reset.css"%}" />
+    <!-- bower:css -->
+    <link rel="stylesheet" href="{% static "angular-material/angular-material.css" %}" />
+    <!-- endbower -->
+
+    <link rel="stylesheet" type="text/css" href="{%static "common/ng-img-crop.css"%}" />
+    <link rel="stylesheet" type="text/x-scss" href="{%static "common/site.scss"%}" />
+
+    
+    
+{% endcompress %}
+{% compress js %}
+    <!-- bower:js -->
+    <script src="{% static "prefixfree/prefixfree.min.js" %}"></script>
+    <script src="{% static "angular/angular.js" %}"></script>
+    <script src="{% static "angular-route/angular-route.js" %}"></script>
+    <script src="{% static "angular-resource/angular-resource.js" %}"></script>
+    <script src="{% static "angular-animate/angular-animate.js" %}"></script>
+    <script src="{% static "angular-aria/angular-aria.js" %}"></script>
+    <script src="{% static "angular-material/angular-material.js" %}"></script>
+    <script src="{% static "angular-material-icons/angular-material-icons.min.js" %}"></script>
+    <script src="{% static "angular-sanitize/angular-sanitize.js" %}"></script>
+    <script src="{% static "lodash/lodash.js" %}"></script>
+    <script src="{% static "angular-google-maps/dist/angular-google-maps.js" %}"></script>
+    <script src="{% static "ng-messages/angular-messages.js" %}"></script>
+    <script src="{% static "ngstorage/ngStorage.js" %}"></script>
+    <script src="{% static "angular-cookies/angular-cookies.js" %}"></script>
+    <script src="{% static "angularLocalStorage/src/angularLocalStorage.js" %}"></script>
+    <script src="{% static "angular-jwt/dist/angular-jwt.js" %}"></script>
+    <!-- endbower -->
+{% endcompress %}
+<script type="text/javascript" src="{% static  "" %}"></script>
+<script type="text/javascript" src="{% static  "accounts/accounts.js" %}"></script>
+<script type="text/javascript" src="{% static  "accounts/controllers/auth.js" %}"></script>
+<script type="text/javascript" src="{% static  "accounts/controllers/detail.js" %}"></script>
+<script type="text/javascript" src="{% static  "accounts/controllers/list.js" %}"></script>
+<script type="text/javascript" src="{% static  "accounts/directives.js" %}"></script>
+<script type="text/javascript" src="{% static  "accounts/services.js" %}"></script>
+<script type="text/javascript" src="{% static  "events/controllers/create.js" %}"></script>
+<script type="text/javascript" src="{% static  "events/controllers/detail.js" %}"></script>
+<script type="text/javascript" src="{% static  "events/controllers/list.js" %}"></script>
+<script type="text/javascript" src="{% static  "events/events.js" %}"></script>
+<script type="text/javascript" src="{% static  "events/services.js" %}"></script>
+<script type="text/javascript" src="{% static  "teams/controllers/create.js" %}"></script>
+<script type="text/javascript" src="{% static  "teams/controllers/detail.js" %}"></script>
+<script type="text/javascript" src="{% static  "teams/controllers/list.js" %}"></script>
+<script type="text/javascript" src="{% static  "teams/services.js" %}"></script>
+<script type="text/javascript" src="{% static  "teams/teams.js" %}"></script>
+<script type="text/javascript" src="{% static  "" %}"></script>
+<script type="text/javascript" src="{% static  "common/app.js" %}"></script>
+<script type="text/javascript" src="{% static  "common/common.js" %}"></script>
+<script type="text/javascript" src="{% static  "common/config.js" %}"></script>
+<script type="text/javascript" src="{% static  "common/controllers.js" %}"></script>
+<script type="text/javascript" src="{% static  "common/directives.js" %}"></script>
+<script type="text/javascript" src="{% static  "common/ng-img-crop.js" %}"></script>
+<script type="text/javascript" src="{% static  "common/services.js" %}"></script>
+<script type="text/javascript" src="{% static 'common/app.js' %}"></script>
+{% block header %}{% endblock %}
+{{ form.media }}
+
