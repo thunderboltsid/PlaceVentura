@@ -39,6 +39,10 @@ INSTALLED_APPS += ("djcelery_email",)
 # Own apps
 INSTALLED_APPS += (
     'apps.accounts',
+<<<<<<< HEAD
+=======
+    'apps.quests',
+>>>>>>> master
     'apps.badges',
     'common',
 )
