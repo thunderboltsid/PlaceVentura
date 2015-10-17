@@ -20,12 +20,12 @@
     <footer style="height:300px;background-color: #838383"></footer>
 </md-content>
 {% verbatim %}
-<script type="text/javascript" id="{{ name }}">
-    document.addEventListener("DOMContentLoaded", function (event) {
-        thisbetterwork = '{{ name }}';
-        console.log(thisbetterwork);
-    });
-</script>
+    <script type="text/javascript" id="{{ name }}">
+        document.addEventListener("DOMContentLoaded", function (event) {
+            thisbetterwork = '{{ name }}';
+            console.log(thisbetterwork);
+        });
+    </script>
 {% endverbatim %}
 <md-sidenav class="md-sidenav-right" md-component-id="right"
             ng-include="'/static/common/sidenav.html'"></md-sidenav>

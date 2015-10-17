@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-{% load staticfiles %}
 {% load compress %}
 {% load static %}
 {% include 'base/head/meta.html' %}
 <!-- Page title-->
 <title>
     {% block page_title %}
-        EESTEC - Electrical Engineering Students' European Association
+        PlaceVentura - Where adventures happen!
     {% endblock %}
 </title>
 <!-- Assets-->
-<link rel="image_src" href="{% static 'enet/img/logo_square.png' %}"/>
 
 {% compress css %}
     <!-- bower:css -->
@@ -34,5 +31,4 @@
 <!-- include: "type": "js", "files": "common/**/*.js" -->
 <script type="text/javascript" src="{% static 'common/app.js' %}"></script>
 {% block header %}{% endblock %}
-{{ form.media }}
 
