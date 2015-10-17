@@ -11,6 +11,13 @@ import logging
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
+@pytest.mark.django_db
+def test_quest_has_attrs():
+    obj=QuestFactory()
+    assert hasattr(obj,"lng")
+    assert hasattr(obj,"lat")
+    assert hasattr(obj,"type")
+    assert hasattr(obj,"precision")
 
 @pytest.mark.django_db
 def test_quest_list_accessible():

@@ -18,6 +18,8 @@ class QuestFactory(factory.DjangoModelFactory):
         model = Quest
     title =  factory.Sequence(lambda n: 'title '+str(n))
     description= "default_description"
+    type="geo"
+    precision=3.14
 
 
 
