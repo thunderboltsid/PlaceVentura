@@ -9,7 +9,7 @@ from basic import *
 
 INSTALLED_APPS
 SECRET_KEY
-ALLOWED_HOSTS = ['.placeventura.de', '.placeventura.rocks', '48.101.217.148']
+ALLOWED_HOSTS = ['.placeventura.de', '.placeventura.rocks', '46.101.217.148']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -34,13 +34,8 @@ CACHE_MIDDLEWARE_KEY_PREFIX=""
 EMAIL_HOST="localhost"
 EMAIL_PORT = 25
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-os.environ['wsgi.url_scheme'] = 'https'
-os.environ['HTTPS'] = "on"
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 COMPRESS_ENABLED=True
-COMPRESS_JS_FILTERS=["compressor.filters.closure.ClosureCompilerFilter"]
-COMPRESS_CLOSURE_COMPILER_BINARY="/usr/bin/closure-compiler"
-COMPRESS_CLOSURE_COMPILER_ARGUMENTS="--language_in ECMASCRIPT5"
-COMPRESS_MINT_DELAY=100
+# COMPRESS_JS_FILTERS=["compressor.filters.closure.ClosureCompilerFilter"]
+# COMPRESS_CLOSURE_COMPILER_BINARY="/usr/bin/closure-compiler"
+# COMPRESS_CLOSURE_COMPILER_ARGUMENTS="--language_in ECMASCRIPT5"
+# COMPRESS_MINT_DELAY=100
