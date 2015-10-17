@@ -29,9 +29,6 @@ angular.module('eestec.common.config', [
             templateUrl: 'static/common/activity.html'
         });
     }])
-    .config(['$locationProvider', function ($locationProvider) {
-        $locationProvider.html5Mode(true);
-    }])
     .config(["uiGmapGoogleMapApiProvider", function (uiGmapGoogleMapApiProvider) {
         uiGmapGoogleMapApiProvider.configure({
             //    key: 'your api key',

@@ -45,12 +45,14 @@
          rgba(0,0,0,0.05) 40%,
         rgba(0,0,0,0) 60%);
         animation-iteration-count:infinite;
+        cursor:pointer;
         z-index:1;
-        ">
+        "><a href="{% url "socialauth_begin" "facebook" %}">
         <img src="{% static 'common/tryout_button.svg' %}"
              style="
          width:60vw;
          ">
         </img>
+        </a>
     </div>
 {% endblock %}
