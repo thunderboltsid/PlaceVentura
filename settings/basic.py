@@ -20,6 +20,12 @@ VERSION = 1
 from conf.apps import *
 # Third party apps
 INSTALLED_APPS += (
+    'apps.accounts',
+    'apps.quests',
+    'apps.badges',
+    'common',
+)
+INSTALLED_APPS += (
     'compressor',
     'social_auth',
     # 'haystack',
@@ -35,12 +41,6 @@ INSTALLED_APPS += (
 )
 INSTALLED_APPS += ("djcelery_email",)
 # Own apps
-INSTALLED_APPS += (
-    'apps.accounts',
-    'apps.quests',
-    'apps.badges',
-    'common',
-)
 from conf.static import *
 
 LOGIN_URL = '/login-form/'
