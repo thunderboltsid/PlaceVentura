@@ -96,12 +96,11 @@ TSHIRT_SIZE = (('mxs', 'Male XS'), ('ms', 'Male S'), ('mm', 'Male M'), ('ml', 'M
 
 
 
-class Account(AbstractBaseUser):
+class Account(AbstractUser):
     #Basic Information
     thumbnail = models.ImageField(upload_to="users",null=True,blank=True,default="/media/cvs/example.jpg")
     description = models.TextField(blank=True, null=True)
     #Contact information
-    email = models.EmailField(_('email address'), max_length=254, unique=True)
     skype = models.CharField(_('Skype Account'), max_length=30, null=True, blank=True)
     facebookid = models.CharField(_('Skype Account'), max_length=30, null=True, blank=True)
     hangouts = models.CharField (max_length=30, null=True, blank=True)
@@ -111,10 +110,6 @@ class Account(AbstractBaseUser):
                                   'Please provide your phone number in +XX XXX XXXXXX '
                                   'format'))
     #Names
-    username   = CharField(max_length=200,blank=True,null=True)
-    first_name = models.CharField(_('first name'), max_length=30)
-    middle_name = models.CharField(_('middle name'), max_length=30, blank=True)
-    last_name = models.CharField(_('last name'), max_length=30)
     second_last_name = models.CharField(_('second last name'), max_length=30, blank=True)
     """ For our friends from the iberic peninsula"""
     date_of_birth = models.DateField(blank=True, null=True)
@@ -133,21 +128,9 @@ class Account(AbstractBaseUser):
     """ Food preferences, for example vegetarian or no pork. """
     curriculum_vitae = models.FileField(upload_to="cvs", blank=True, null=True,default="/media/cvs/example.dat")
     """ For the future incorporation of Lykeion """
-    date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
-    """Should be set by the user to the time they joined eestec. For new users it will
-    be the moment they register with the website"""
 
 
     #Django information
-    is_staff = models.BooleanField(_('active'), default=False)
-    is_active = models.BooleanField(_('active'), default=True,
-                                    help_text=_(
-                                        'Designates whether this user should be '
-                                        'treated as '
-                                        'active. Unselect this instead of deleting '
-                                        'accounts.'))
-    """Designates whether this user should be treated as active. Unselect this instead
-    of deleting accounts"""
 
 
     USERNAME_FIELD = 'email'
