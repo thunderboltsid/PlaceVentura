@@ -18,12 +18,18 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('title', models.CharField(max_length=200, null=True, blank=True)),
                 ('description', models.TextField(null=True, blank=True)),
+                ('type', models.CharField(max_length=100, choices=[(b'geo', b'geo')])),
+                ('lat', models.FloatField(null=True, blank=True)),
+                ('lng', models.FloatField(null=True, blank=True)),
+                ('precision', models.FloatField(null=True, blank=True)),
             ],
         ),
         migrations.CreateModel(
             name='Response',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('lat', models.FloatField(null=True, blank=True)),
+                ('lng', models.FloatField(null=True, blank=True)),
                 ('quest', models.ForeignKey(to='quests.Quest')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],

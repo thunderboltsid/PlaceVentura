@@ -96,7 +96,7 @@ TSHIRT_SIZE = (('mxs', 'Male XS'), ('ms', 'Male S'), ('mm', 'Male M'), ('ml', 'M
 
 
 
-class Account(AbstractBaseUser, PermissionsMixin):
+class Account(AbstractBaseUser):
     #Basic Information
     thumbnail = models.ImageField(upload_to="users",null=True,blank=True,default="/media/cvs/example.jpg")
     description = models.TextField(blank=True, null=True)
