@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 from settings.conf.media import MEDIA_ROOT
 
@@ -36,4 +37,6 @@ urlpatterns += patterns(
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^services/timing/', include(statsd_patterns)),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', TemplateView.as_view(template_name='base/index.html'), name='home'),
+
 )

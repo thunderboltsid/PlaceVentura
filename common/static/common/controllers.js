@@ -5,11 +5,6 @@ angular.module('eestec.common.controllers', [
     'ngMaterial',
     'uiGmapgoogle-maps'
 ])
-    .controller("landingController", ["$scope", function($scope){
-        $scope.redirectTo = function(url){
-            $location.path(url);
-        }
-    }])
     //.controller('activitiesController', ["$scope", "Team", "Workshop",
     //    function ($scope, Team, Workshop) {
     //        $scope.teams = Team.query();
@@ -54,7 +49,7 @@ angular.module('eestec.common.controllers', [
             };
         }])
     .controller('sidenavcontroller', [
-        '$scope',"$location",
+        '$scope', "$location",
         function ($scope, $location) {
             $scope.navigation = function (name) {
                 $location.path(name).replace();
@@ -121,6 +116,9 @@ angular.module('eestec.common.controllers', [
     .controller('contentController', [
         '$scope', 'Content', "$q",
         function ($scope, Content, $q) {
+            $scope.redirectTo = function (url) {
+                $location.path(url);
+            };
             CONTENTLOADED = $q.defer();
             $scope.contents = Content.query(function () {
                 $scope.content = function (name) {
