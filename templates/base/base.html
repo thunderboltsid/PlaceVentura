@@ -9,17 +9,15 @@
 
 <body ng-app="eestec" ng-controller='appCtrl'>
 
-<md-content style="opacity: 0.9" ng-controller="contentController">
-    {% block content %}
-    {% endblock %}
-</md-content>
+{% block content %}
+{% endblock %}
 {% verbatim %}
-    <script type="text/javascript" id="{{ name }}">
-        document.addEventListener("DOMContentLoaded", function (event) {
-            thisbetterwork = '{{ name }}';
-            console.log(thisbetterwork);
-        });
-    </script>
+<script type="text/javascript" id="{{ name }}">
+    document.addEventListener("DOMContentLoaded", function (event) {
+        thisbetterwork = '{{ name }}';
+        console.log(thisbetterwork);
+    });
+</script>
 {% endverbatim %}
 <md-sidenav class="md-sidenav-right" md-component-id="right"
             ng-include="'/static/common/sidenav.html'"></md-sidenav>
