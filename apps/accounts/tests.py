@@ -29,8 +29,8 @@ def test_user_list_contains_objects():
     url = reverse_lazy('account-list')
     c = Client()
     response = c.get(url)
-    # there is an anon user so thats why its 3
-    assert len(response.context["object_list"]) == 3, "User List contains incorrect amount of users"
+    # there is an anon user and an admin so thats why its 4
+    assert len(response.context["object_list"]) == 4, "User List contains incorrect amount of users"
 
 
 @pytest.mark.django_db
