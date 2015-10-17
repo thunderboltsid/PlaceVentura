@@ -1,13 +1,56 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block content %}
+    <style type="text/css">
+        @keyframes clouds {
+            0% {
+                margin-left: 0vw;
+            }
+            50% {
+                margin-left: -10vw;
+            }
+            100% {
+                margin-left: 0vw;
+            }
+        }
+
+        @keyframes adventure {
+            0% {
+                margin-left: 30vw;
+            }
+            50% {
+                margin-left: -30vw;
+            }
+            100% {
+                margin-left: 30vw;
+            }
+        }
+    </style>
     <img src="{% static 'common/background.svg' %}"
          style="
          position:fixed;
-         width:100vw;
+         width:130vw;
          height:100vh;
+         animation-name: clouds;
+    animation-duration: 7s;
+         animation-iteration-count:infinite;
          top:0;
          left:0;">
     </img>
-    <md-button class="md-primary md-raised" onclick="window.location.href='/login'">Adventure Time</md-button>
+    <div style="
+        animation-name: adventure;
+        animation-duration: 4s;
+        padding:300px 500px;
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%,
+         rgba(0,0,0,0.05) 40%,
+        rgba(0,0,0,0) 60%);
+        animation-iteration-count:infinite;
+        z-index:1;
+        ">
+        <img src="{% static 'common/tryout_button.svg' %}"
+             style="
+         width:60vw;
+         ">
+        </img>
+    </div>
 {% endblock %}
