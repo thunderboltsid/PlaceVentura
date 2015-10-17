@@ -1,5 +1,6 @@
 from fabric.context_managers import lcd
 from fabric.operations import local
+from fabric.api import *
 
 __author__ = 'swozn'
 import logging
@@ -7,7 +8,15 @@ import logging
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
-
+env.hosts=['root@46.101.217.148']
+def deploy():
+    with cd("/vagrant/"):
+        run("git stash")
+        run("git pull")
+        run("python manage.py migrate --settings=settings.deployment")
+        run("python manage.py collectstatic --no-input")
+        run("service supervisor restart")
+    run("chmod 777 -R /vagrant")
 def remove_migrations():
     apps = local('ls -1 apps', capture=True).split()
     for app in apps:
