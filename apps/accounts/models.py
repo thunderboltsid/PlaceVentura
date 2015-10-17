@@ -1,7 +1,7 @@
 from django.contrib import auth
 from django.contrib.auth.models import User, AbstractBaseUser, AbstractUser, \
     PermissionsMixin, Permission, _user_get_all_permissions, _user_has_perm, \
-    _user_has_module_perms, GroupManager, BaseUserManager
+    _user_has_module_perms, GroupManager, BaseUserManager, UserManager
 from django.contrib.contenttypes.fields import GenericRelation
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
@@ -37,30 +37,15 @@ from django.contrib.auth.models import (
 
 
 
-class EestecerManager(BaseUserManager):
+class EestecerManager(UserManager):
     """ A manager taking care of creating :class:`Eestecer` objects. """
 
-    def _create_user(self, email, password,
-                     is_staff, is_superuser, **extra_fields):
-        """
-        Creates and saves a User with the given email and password.
-        """
-        now = timezone.now()
-        email = self.normalize_email(email)
-        user = self.model(email=email,
-                          is_staff=is_staff, is_active=True,
-                          is_superuser=is_superuser, last_login=now,
-                          date_joined=now, **extra_fields)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
 
-    def create_user(self, email, password=None, **extra_fields):
-        return self._create_user(email, password, False, False, **extra_fields)
+    def create_user(self,*args,**kwargs):
+        kwargs["username"]=kwargs["email"]
+        kwargs["email"]+="@example.net"
+        return super(EestecerManager, self).create_user(**kwargs)
 
-    def create_superuser(self, email, password, **extra_fields):
-        return self._create_user(email, password, True, True,
-                                 **extra_fields)
 
 
 FIELDS_OF_STUDY = (

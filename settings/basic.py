@@ -13,9 +13,8 @@ except:
 WSGI_APPLICATION = 'common.wsgi.application'
 AUTH_USER_MODEL = 'accounts.Account'
 SOCIAL_AUTH_USER_MODEL = AUTH_USER_MODEL
-SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice([
-    'Darth Vader', 'Obi-Wan Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])
-SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
+FACEBOOK_EXTENDED_PERMISSIONS = ['email','public_profile']
+SOCIAL_AUTH_DEFAULT_USERNAME = lambda: str(random.random())
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 ROOT_URLCONF = 'common.urls'
 VERSION = 1
@@ -38,7 +37,7 @@ INSTALLED_APPS += (
     'corsheaders',
     'rest_framework',
     'debug_toolbar',
-    'django_statsd',
+    # 'django_statsd',
 )
 INSTALLED_APPS += ("djcelery_email",)
 # Own apps
