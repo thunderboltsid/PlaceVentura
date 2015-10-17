@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-{% load staticfiles %}
 {% load compress %}
 {% load static %}
 {% include 'base/head/meta.html' %}
 <!-- Page title-->
 <title>
     {% block page_title %}
-        PlaceVentura - Where Adventure starts!
+        PlaceVentura - Where adventures happen!
     {% endblock %}
 </title>
 <!-- Assets-->
-<link rel="image_src" href="{% static 'common/Placeholder.png' %}"/>
 
 {% compress css %}
     <!-- bower:css -->
@@ -44,12 +41,14 @@
     <script src="{% static "angular-jwt/dist/angular-jwt.js" %}"></script>
     <!-- endbower -->
 {% endcompress %}
+<script type="text/javascript" src="{% static  "" %}"></script>
 <script type="text/javascript" src="{% static  "accounts/accounts.js" %}"></script>
 <script type="text/javascript" src="{% static  "accounts/controllers/auth.js" %}"></script>
 <script type="text/javascript" src="{% static  "accounts/controllers/detail.js" %}"></script>
 <script type="text/javascript" src="{% static  "accounts/controllers/list.js" %}"></script>
 <script type="text/javascript" src="{% static  "accounts/directives.js" %}"></script>
 <script type="text/javascript" src="{% static  "accounts/services.js" %}"></script>
+<script type="text/javascript" src="{% static  "" %}"></script>
 <script type="text/javascript" src="{% static  "common/app.js" %}"></script>
 <script type="text/javascript" src="{% static  "common/common.js" %}"></script>
 <script type="text/javascript" src="{% static  "common/config.js" %}"></script>
@@ -58,6 +57,5 @@
 <script type="text/javascript" src="{% static  "common/ng-img-crop.js" %}"></script>
 <script type="text/javascript" src="{% static  "common/services.js" %}"></script>
 <script type="text/javascript" src="{% static 'common/app.js' %}"></script>
-{#{% block header %}{% endblock %}#}
-{#{{ form.media }}#}
+{% block header %}{% endblock %}
 
