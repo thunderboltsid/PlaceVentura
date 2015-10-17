@@ -1,8 +1,8 @@
 {% extends 'base/base.html' %}
 {%  block content %}
-<div layout="column" ng-controller="questListController">
+<div layout="column">
     {% for object in object_list %}
-        <md-card style="padding:10px; width: 80vw" ng-click="">
+        <md-card style="padding:10px; width: 80vw" href="/quest/{{ object.id }}">
             <div layout="column">
                 <h3 class="md-title">{{ object.title }}</h3>
                 <p class="md-body-1">{{ object.description }}</p>
