@@ -1,1 +1,14 @@
-{% extends 'base/base.html'
+{% extends 'base/base.html' %}
+{%  block content %}
+<div layout="column" ng-controller="questListController">
+    {% for object in object_list %}
+        <md-card style="padding:10px; width: 80vw" ng-click="">
+            <div layout="column">
+                <h3 class="md-title">{{ object.title }}</h3>
+                <p class="md-body-1">{{ object.description }}</p>
+                <p class="md-caption">{{ object.users.count }} users already completed this quest</p>
+            </div>
+        </md-card>
+    {% endfor %}
+</div>
+{% endblock %}
