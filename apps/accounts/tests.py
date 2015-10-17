@@ -40,3 +40,16 @@ def test_user_detail_accessible():
     c = Client()
     response = c.get(url)
     assert response.status_code == 200, "User detail was unreachable"
+
+@pytest.mark.django_db
+def test_user_full_name():
+    obj = AccountFactory()
+    assert obj.get_full_name()
+@pytest.mark.django_db
+def test_user_short_name():
+    obj = AccountFactory()
+    assert obj.get_short_name()
+@pytest.mark.django_db
+def test_print_user():
+    obj = AccountFactory()
+    print obj

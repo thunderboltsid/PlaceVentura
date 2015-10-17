@@ -1,14 +1,27 @@
+import random
+
 SILENCED_SYSTEM_CHECKS = [u"models.E005"]
 from settings.conf.debugtoolbar import *
 from settings.conf.templates import TEMPLATE_DIRS
+
+try:
+    from secret import FACEBOOK_APP_ID ,FACEBOOK_API_SECRET
+except:
+    FACEBOOK_API_SECRET="lol"
+    FACEBOOK_APP_ID="thisisnotit"
 WSGI_APPLICATION = 'common.wsgi.application'
 AUTH_USER_MODEL = 'accounts.Account'
+SOCIAL_AUTH_USER_MODEL = AUTH_USER_MODEL
+SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice([
+    'Darth Vader', 'Obi-Wan Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])
+SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 ROOT_URLCONF = 'common.urls'
 VERSION = 1
 from conf.apps import *
 # Third party apps
 INSTALLED_APPS += (
     'compressor',
+    'social_auth',
     # 'haystack',
     'kombu.transport.django',
     'djcelery',
@@ -31,6 +44,9 @@ INSTALLED_APPS += (
 )
 from conf.static import *
 
+LOGIN_URL = '/login-form/'
+LOGIN_REDIRECT_URL = '/logged-in/'
+LOGIN_ERROR_URL = '/login-error/'
 STATICFILES_FINDERS += (
     'compressor.finders.CompressorFinder',
 )
@@ -65,4 +81,3 @@ MIDDLEWARE_CLASSES
 TEMPLATE_DIRS
 STATSD_MODEL_SIGNALS
 DEBUG_TOOLBAR_PANELS
-

@@ -97,14 +97,6 @@ TSHIRT_SIZE = (('mxs', 'Male XS'), ('ms', 'Male S'), ('mm', 'Male M'), ('ml', 'M
                ('fxxxl', 'Female XXXL'), )
 
 
-def get_eestecer_slug(instance):
-    if instance.middle_name:
-        return "%s-%s-%s" % (
-        instance.first_name, instance.middle_name, instance.last_name)
-    else:
-        return "%s-%s-%s" % (
-        instance.first_name, instance.middle_name, instance.last_name)
-
 
 class Account(AbstractBaseUser, PermissionsMixin):
     #Basic Information
@@ -123,6 +115,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
                                   'Please provide your phone number in +XX XXX XXXXXX '
                                   'format'))
     #Names
+    username   = CharField(max_length=200,blank=True,null=True)
     first_name = models.CharField(_('first name'), max_length=30)
     middle_name = models.CharField(_('middle name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30)

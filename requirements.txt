@@ -45,3 +45,4 @@ six
 sorl-thumbnail
 django-debug-toolbar
 django-statsd-mozilla
+django-social-auth

@@ -20,7 +20,7 @@ def seed_admin(aapps,schema):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0001_initial')
+        ('accounts', '0003_account_username')
     ]
 
     operations = [
