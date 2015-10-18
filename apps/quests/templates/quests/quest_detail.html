@@ -46,14 +46,13 @@
                     var questID = {{ object.id }};
                     var userID = 1;
                     console.log(userID);
-                    submitQuest(lat, long, questID, userID);
+                    submitQuest(lat, long, questID,userID);
                 }
 
                 function submitQuest(lat, long, quest,user) {
                     var url = window.location.origin + "/quests/response/";
                     $.post(url,{lat:lat,lng:long,quest:quest,user:user},function(data){
-                        //var data = {status:0, message: "Good job!"};
-                        var data = JSON.parse(data);
+                        //var data = {status:0, message: "Good job!"}; //JSON.parse(data);
                         console.log(data);
                         if (data.status == 0)
                             $("#completeQuest").css("background-color","#0F0");
