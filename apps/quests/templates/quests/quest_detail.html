@@ -22,8 +22,12 @@
 
                 <p class="md-body-2" style="text-align: center;">{{ object.description }}</p>
 
-                <p class="md-body-1" style="text-align: center;">{{ object.users.count }} users already completed this quest</p>
-                <md-button id="completeQuest" style="color:white;font-weight:bold;background-color:rgba(226, 175, 1, 0.8);" class="md-primary md-raised">Complete Quest</md-button>
+                <p class="md-body-1" style="text-align: center;">{{ object.users.count }} users already completed this
+                    quest</p>
+                <md-button id="completeQuest"
+                           style="color:white;font-weight:bold;background-color:rgba(226, 175, 1, 0.8);"
+                           class="md-primary md-raised">Complete Quest
+                </md-button>
             </div>
         </div>
     </div>
@@ -48,18 +52,21 @@
 
                 function submitQuest(lat, long, quest) {
                     var url = window.location.origin + "/quests/response/";
-                    $.post(url,{lat:lat,lng:long,quest:quest},function(data){
+                    $.post(url, {lat: lat, lng: long, quest: quest}, function (data) {
                         //var data = {status:0, message: "Good job!"}; //JSON.parse(data);
                         console.log(data);
-                        if (data.status == 0)
-                            $("#completeQuest").css("background-color","#0F0");
-                        $("#completeQuest").text(data.message);
-                        if(data.message.indexOf("GOOD")<0) {
-                            $("#completeQuest").css("background-color","#F00");
-                            setTimeout(function () {
-                                $("#completeQuest").css("background-color","rgba(223, 202, 21, 0.8)");
-                                $("#completeQuest").text("COMPLETE QUEST");
-                            },1000);
+                        if (data.status == 0) {
+                            $("#completeQuest").css("background-color", "#0F0");
+                            $("#completeQuest").text(data.message);
+                        } else {
+                            $("#completeQuest").text(data.message);
+                            if (data.message.indexOf("Good") < 0) {
+                                $("#completeQuest").css("background-color", "#F00");
+                                setTimeout(function () {
+                                    $("#completeQuest").css("background-color", "rgba(223, 202, 21, 0.8)");
+                                    $("#completeQuest").text("COMPLETE QUEST");
+                                }, 1000);
+                            }
                         }
                     })
                 }
