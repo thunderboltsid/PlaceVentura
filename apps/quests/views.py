@@ -23,6 +23,7 @@ class ResponseCreate(CreateView):
         pass
 
     def form_valid(self, form):
+        import pdb; pdb.set_trace()
         if self.request.user.is_authenticated:
             resp = form.save(commit=False)
             resp.user = self.request.user
