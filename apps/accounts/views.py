@@ -17,7 +17,6 @@ logger = logging.getLogger(__name__)
 
 def update_avatar(backend, details, response, social_user, uid,
                   user, *args, **kwargs):
-    import pdb;pdb.set_trace()
     if backend.name == 'facebook':
         url = "http://graph.facebook.com/%s/picture?type=large" % response['id']
         avatar = urlopen(url)
