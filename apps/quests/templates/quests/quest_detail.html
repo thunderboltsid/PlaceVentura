@@ -55,6 +55,11 @@
                         if (data.status == 0)
                             $("#completeQuest").css("background-color","#0F0");
                         $("#completeQuest").text(data.message);
+                        if(data.message.indexOf("GOOD")<0) {
+                            setTimeout(function () {
+                                $("#completeQuest").text("COMPLETE QUEST");
+                            },1000);
+                        }
                     })
                 }
             })
