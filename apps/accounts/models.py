@@ -43,6 +43,7 @@ class EestecerManager(UserManager):
 
     def create_user(self,*args,**kwargs):
         kwargs["username"]=kwargs["email"]
+        import pdb;pdb.set_trace()
         kwargs["email"]+="@example.net"
         return super(EestecerManager, self).create_user(**kwargs)
 
