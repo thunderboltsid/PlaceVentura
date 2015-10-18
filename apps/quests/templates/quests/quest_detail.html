@@ -1,16 +1,65 @@
 {% extends 'base/base.html' %}
+{% load static %}
 {% block content %}
     <div layout="column">
-        <md-card style="padding:10px; width: 80vw;">
+        <style>
+            body {
+                opacity: 0.9;
+            }
+        </style>
+        <img src="{% static 'common/questmenue.svg' %}"
+             style=" position:fixed;
+         width:100%;
+         top:0;
+         left:0;
+         z-index: -1;
+         ">
+
+        <div style="padding:10px; width: 60vw; opacity: 0.7">
             <div layout="column">
                 <h1 class="md-display-1">{{ object.title }}</h1>
 
-                <p class="md-body-2">Type: {{ object.type }}</p>
+                <p class="md-body-4" style="">Type: {{ object.type }}</p>
 
-                <p class="md-body-2">Description : {{ object.description }}</p>
+                <p class="md-body-2">{{ object.description }}</p>
 
                 <p class="md-body-1">{{ object.users.count }} users already completed this quest</p>
+                <md-button id="completeQuest" class="md-primary md-raised">Complete Quest</md-button>
             </div>
-        </md-card>
+        </div>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#completeQuest").on("click", function () {
+                getLocation();
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                        x.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+
+                function showPosition(position) {
+                    var lat = position.coords.latitude;
+                    var long = position.coords.longitude;
+                    var questID = {{ object.id }};
+                    var userID = {{ request.user.get_profile.id }}
+                    console.log(userID);
+                    submitQuest(lat, long, questID);
+                }
+
+                function submitQuest(lat, long, quest,user) {
+                    var url = window.location.origin + "/quests/response/";
+                    $.post(url,{lat:lat,lng:long,quest:quest,user:user},function(data){
+                        var data = JSON.parse(data);
+                        console.log(data);
+                        if (data.status == 0)
+                            $("#completeQuest").css("background-color","#0F0");
+                        $("#completeQuest").text(data.message);
+                    })
+                }
+            })
+        })
+    </script>
 {% endblock %}

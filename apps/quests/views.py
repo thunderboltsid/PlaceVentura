@@ -1,4 +1,6 @@
 from django.core.exceptions import ValidationError
+from django.http import JsonResponse
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView
 from apps.quests.models import Quest, Response, in_range
 
@@ -21,8 +23,13 @@ class ResponseCreate(CreateView):
         pass
 
     def form_valid(self, form):
-        resp = form.save(commit=False)
-        if(in_range((resp.lat, resp.lng), (resp.quest.lat, resp.quest.lng), resp.quest.precision)):
-            return super(ResponseCreate, self).form_valid(form)
+        if self.request.user.is_authenticated:
+            resp = form.save(commit=False)
+            if(in_range((resp.lat, resp.lng), (resp.quest.lat, resp.quest.lng), resp.quest.precision)):
+                resp.save(commit=True)
+                # super(ResponseCreate, self).form_valid(form)
+                return JsonResponse({"status":0,"message":"Good job!"})
+            else:
+                return JsonResponse({"status":2,"message":"Sorry, wrong location"})
         else:
-            raise ValidationError("Sorry, you're not in the right location!")
+            return JsonResponse({"status":1,"message":"Login bitch !"})

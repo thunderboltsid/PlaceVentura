@@ -8,12 +8,11 @@
          top:0;
          left:0;
          ">
-    </img>
 
     <div style="position: fixed; width: 100%; top: 33vh; margin: auto; height: 80vh; left: 0; right: 0; display: flex; justify-content: center;">
         <div layout="column" style="overflow: scroll; position: relative; flex: 1 1 100%; justify-content: center; align-items: center;">
             {% for object in object_list %}
-                <md-card style="padding:10px; width: 60vw; cursor: pointer; opacity: 0.7"
+                <md-card style="padding:10px; width: 60vw; cursor: pointer; opacity: 0.7; box-sizing: initial"
                          onclick="window.location.href='/quests/{{ object.id }}'">
                     <div layout="column">
                         <h3 class="md-title">{{ object.title }}</h3>
