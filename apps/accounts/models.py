@@ -118,7 +118,7 @@ class Account(AbstractUser):
     #Django information
 
 
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'gender']
+    REQUIRED_FIELDS = ['email']
 
     objects = EestecerManager()
 
