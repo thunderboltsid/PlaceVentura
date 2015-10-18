@@ -37,17 +37,7 @@ angular.module('eestec.common.controllers', [
     //            });
     //        });
     //    }])
-    .controller('toolbarController', [
-        "$scope", "$location", "$mdDialog", "$mdSidenav", "$http",
-        function ($scope, $location, $mdDialog, $mdSidenav, $http) {
-            $scope.navigation = function (name) {
-                $location.path(name).replace();
-                console.log($location);
-            };
-            $scope.toggleSidenav = function (name) {
-                $mdSidenav(name).toggle();
-            };
-        }])
+
     .controller('sidenavcontroller', [
         '$scope', "$location",
         function ($scope, $location) {
@@ -112,30 +102,5 @@ angular.module('eestec.common.controllers', [
         '$scope', '$localStorage',
         function ($scope, $localStorage) {
             $scope.user = $localStorage.user;
-        }])
-    .controller('contentController', [
-        '$scope', 'Content', "$q",
-        function ($scope, Content, $q) {
-            $scope.redirectTo = function (url) {
-                $location.path(url);
-            };
-            CONTENTLOADED = $q.defer();
-            $scope.contents = Content.query(function () {
-                $scope.content = function (name) {
-                    var result = $scope.contents.filter(function (x) {
-                        return x.name === name;
-                    })[0];
-                    if (!result) {
-                        result = new Content();
-                        result.name = name;
-                        result.content = "Placeholder for " + name;
-                        result.images = [];
-                        result.$save();
-                        $scope.contents.push(result);
-                    }
-                    return result;
-                };
-                CONTENTLOADED.resolve();
-            });
-            $scope.edit = false;
         }]);
+
