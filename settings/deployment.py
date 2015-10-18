@@ -10,6 +10,7 @@ from basic import *
 INSTALLED_APPS
 SECRET_KEY
 ALLOWED_HOSTS = ['.placeventura.de', '.placeventura.rocks', '46.101.217.148']
+DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
