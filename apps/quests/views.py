@@ -28,7 +28,7 @@ def make_badge(toggle):
         return
     badge ,created = Badge.objects.get_or_create(name=toggle,description=toggle)
     if True:
-        with open('common/static/' + toggle + '.svg', 'rb') as doc_file:
+        with open('common/static/common/' + toggle + '.svg', 'rb') as doc_file:
             badge.thumbnail.save(toggle + ".svg", File(doc_file), save=True)
         badge.save()
     return badge
