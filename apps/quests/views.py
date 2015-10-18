@@ -23,6 +23,8 @@ class ResponseCreate(CreateView):
         pass
 
     def form_valid(self, form):
+        print form
+        import pdb; pdb.set_trace()
         if self.request.user.is_authenticated:
             resp = form.save(commit=False)
             if(in_range((resp.lat, resp.lng), (resp.quest.lat, resp.quest.lng), resp.quest.precision)):

@@ -136,6 +136,9 @@ class Account(AbstractUser):
     def get_short_name(self):
         "Returns the short name for the user."
         return '%s %s' % (self.first_name, self.last_name)
+    @property
+    def get_id(self):
+        return self.pk
     def __unicode__(self):
         return self.email
 
