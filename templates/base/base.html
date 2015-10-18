@@ -8,8 +8,19 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic,latin-ext' rel='stylesheet'
           type='text/css'>
     <style type="text/css">* {
-        font-family: 'Roboto', sans-serif;
-    }</style>
+        font-family: 'Roboto', sans-serif !important;
+    }
+
+    @media screen and (max-aspect-ratio: 1/1) {
+        .li:first-child{
+            margin-top:180px;
+        }
+        .wtf{
+            top:22vh !important;
+            height: 78vh !important;;
+        }
+    }
+    </style>
 </head>
 
 <body ng-app="eestec" style="display:flex;justify-content:center;align-items:center;align-content: center;">
@@ -24,12 +35,12 @@
 {% block content %}
 {% endblock %}
 {% verbatim %}
-    <script type="text/javascript" id="{{ name }}">
-        document.addEventListener("DOMContentLoaded", function (event) {
-            thisbetterwork = '{{ name }}';
-            console.log(thisbetterwork);
-        });
-    </script>
+<script type="text/javascript" id="{{ name }}">
+    document.addEventListener("DOMContentLoaded", function (event) {
+        thisbetterwork = '{{ name }}';
+        console.log(thisbetterwork);
+    });
+</script>
 {% endverbatim %}
 <md-sidenav class="md-sidenav-right" md-component-id="right"
             ng-include="'/static/common/sidenav.html'"></md-sidenav>
