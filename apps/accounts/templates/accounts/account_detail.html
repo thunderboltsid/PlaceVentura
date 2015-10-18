@@ -12,7 +12,7 @@
     <style type="text/css">body{align-items: flex-start !important;} </style>
 
     <div layout="column" style="z-index:2">
-            <div layout="column" style="padding:20vw 17vw;">
+            <div layout="column" style="padding:20vw 17vw;align-items: center;">
                 {% block pictures %}
                     {% thumbnail object.thumbnail "500x500" crop="center" as im %}
                         <img alt="{{ object }}" src="{{ im.url }}" style="width:70vw;">
