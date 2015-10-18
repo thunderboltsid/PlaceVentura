@@ -9,12 +9,15 @@
          top:0;
          left:0;
          ">
-
+{{ user.quest_set.all }}
     <div class="wtf" style="position: fixed; width: 100%; top: 33vh; margin: auto; height: 67vh; left: 0; right: 0; display: flex; justify-content: center;">
         <div layout="column" style="overflow: scroll; position: relative; flex: 1 1 100%; justify-content: center; align-items: center;">
             {% for object in object_list %}
-                <md-card class="li" style="padding:10px; width: 60vw; cursor: pointer; opacity: 0.7; box-sizing: initial"
-                         onclick="window.location.href='/quests/{{ object.id }}'">
+                <md-card class="li" style="padding:10px; width: 60vw; cursor: pointer;
+                {% if object in user.quest_set.all %}background-color:rgba(0,255,0,0.5);{% endif %}
+                opacity: 0.7; box-sizing: initial"
+                         {% if object in user.quest_set.all %}{% else %}
+                         onclick="window.location.href='/quests/{{ object.id }}'"{% endif %}>
                     <div layout="column">
                         <h3 class="md-title" style="text-align: center">{{ object.title }}</h3>
 
