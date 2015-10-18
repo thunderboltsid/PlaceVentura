@@ -13,7 +13,7 @@ except:
 WSGI_APPLICATION = 'common.wsgi.application'
 AUTH_USER_MODEL = 'accounts.Account'
 SOCIAL_AUTH_USER_MODEL = AUTH_USER_MODEL
-FACEBOOK_EXTENDED_PERMISSIONS = ['email','public_profile']
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 SOCIAL_AUTH_DEFAULT_USERNAME = lambda: str(random.random())
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 ROOT_URLCONF = 'common.urls'
