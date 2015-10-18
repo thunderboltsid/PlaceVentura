@@ -22,6 +22,7 @@ def update_avatar(backend, details, response, social_user, uid,
         url = "http://graph.facebook.com/%s/picture?type=large" % response['id']
         avatar = urlopen(url)
         user.username=user.email
+        import pdb;pdb.set_trace()
         names=re.findall('[A-Z][^A-Z]*', user.username)
         user.first_name=names[0]
         user.last_name=names[-1]
