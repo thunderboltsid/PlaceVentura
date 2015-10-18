@@ -1,5 +1,5 @@
-from django.views.generic import ListView, DetailView
-from apps.quests.models import Quest
+from django.views.generic import ListView, DetailView, CreateView
+from apps.quests.models import Quest, Response
 
 
 class QuestList(ListView):
@@ -10,5 +10,11 @@ class QuestList(ListView):
 
 class QuestDetail(DetailView):
     model = Quest
+    class Meta:
+        pass
+
+class ResponseCreate(CreateView):
+    model = Response
+    fields = ["user", "quest", "lat", "lng"]
     class Meta:
         pass
