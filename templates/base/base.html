@@ -5,12 +5,22 @@
 <head>
     {% include 'base/head/base.html' %}
     <base href="/">
-    <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
-    <style type="text/css">*{
-        font-family: 'Roboto', sans-serif;}</style>
+    <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic,latin-ext' rel='stylesheet'
+          type='text/css'>
+    <style type="text/css">* {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    @media screen and (max-aspect-ratio: 1/1) {
+        .li:first-child{
+            margin-top:50px;
+        }
+    }
+    </style>
 </head>
 
-<body ng-app="eestec" style="display:flex;justify-content:center;align-items:center;align-content: center;" ng-controller='appCtrl'>
+<body ng-app="eestec" style="display:flex;justify-content:center;align-items:center;align-content: center;"
+      ng-controller='appCtrl'>
 
 {% block content %}
 {% endblock %}
