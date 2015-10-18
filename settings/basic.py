@@ -15,6 +15,7 @@ AUTH_USER_MODEL = 'accounts.Account'
 SOCIAL_AUTH_USER_MODEL = AUTH_USER_MODEL
 FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 SOCIAL_AUTH_DEFAULT_USERNAME = lambda: str(random.random())
+SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL =True
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 ROOT_URLCONF = 'common.urls'
 VERSION = 1
