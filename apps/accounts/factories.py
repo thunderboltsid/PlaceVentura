@@ -21,3 +21,4 @@ class AccountFactory(factory.DjangoModelFactory):
     password = factory.PostGenerationMethodCall('set_password',
                                                 'defaultpassword')
     email = factory.sequence(lambda x: str(random.randint(1, 100)) + "a@b.de" + str(x))
+    first_name="alfred"

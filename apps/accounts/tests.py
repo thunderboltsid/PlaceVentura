@@ -30,7 +30,7 @@ def test_user_list_contains_objects():
     c = Client()
     response = c.get(url)
     # there is an anon user and an admin so thats why its 4
-    assert len(response.context["object_list"]) == 4, "User List contains incorrect amount of users"
+    assert len(response.context["object_list"]) == 2, "User List contains incorrect amount of users"
 
 
 @pytest.mark.django_db
