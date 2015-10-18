@@ -43,7 +43,6 @@ class EestecerManager(UserManager):
 
     def create_user(self,*args,**kwargs):
         kwargs["username"]=kwargs["email"]
-        import pdb;pdb.set_trace()
         kwargs["email"]+="@example.net"
         return super(EestecerManager, self).create_user(**kwargs)
 
@@ -101,7 +100,7 @@ class Account(AbstractUser):
     date_of_birth = models.DateField(blank=True, null=True)
     show_date_of_birth = models.BooleanField(default=True)
     receive_eestec_active = models.BooleanField(default=True)
-    gender = models.CharField(max_length=15, choices=GENDER_CHOICES,null=True,blank=True)
+    gender = models.CharField(max_length=15, choices=GENDER_CHOICES)
     tshirt_size = models.CharField(max_length=15, choices=TSHIRT_SIZE, blank=True,
                                    null=True)
     allergies = models.CharField(max_length=50, blank=True, null=True)
@@ -119,7 +118,8 @@ class Account(AbstractUser):
     #Django information
 
 
-    REQUIRED_FIELDS = ['email']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'gender']
 
     objects = EestecerManager()
 
@@ -137,11 +137,8 @@ class Account(AbstractUser):
     def get_short_name(self):
         "Returns the short name for the user."
         return '%s %s' % (self.first_name, self.last_name)
-    @property
-    def get_id(self):
-        return self.pk
     def __unicode__(self):
-        return self.email
+        return self.get_full_name()
 
 
 # class Achievement(models.Model):
