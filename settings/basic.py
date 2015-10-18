@@ -18,6 +18,19 @@ SOCIAL_AUTH_DEFAULT_USERNAME = lambda: str(random.random())
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 ROOT_URLCONF = 'common.urls'
 VERSION = 1
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.user.get_username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details'
+)
+SOCIAL_AUTH_PIPELINE += (
+    'apps.accounts.views.update_avatar',
+)
 from conf.apps import *
 # Third party apps
 INSTALLED_APPS += (
