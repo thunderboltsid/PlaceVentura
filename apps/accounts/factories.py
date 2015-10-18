@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-import datetime
-from random import randint
+import random
 
 import factory
 
@@ -12,29 +11,13 @@ import logging
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
+
 class AccountFactory(factory.DjangoModelFactory):
     class Meta:
         model = Account
-        django_get_or_create=["email"]
+        django_get_or_create = ["email"]
 
-    first_name = u"Łukasz"
-    middle_name = u"Matteusz"
-    last_name = u"Knüppel"
-    second_last_name = u"Goméz"
+    username = factory.sequence(lambda x: str(random.random()))
     password = factory.PostGenerationMethodCall('set_password',
                                                 'defaultpassword')
-    email = factory.sequence(lambda x: str(randint(1,100)) + "a@b.de" + str(x))
-    gender = "m"
-
-    # Information important for events
-    tshirt_size = "mxxl"
-    passport_number = "asdad"
-    #Information important for companies
-    field_of_study = "ee"
-    food_preferences = "vegan"
-    # curriculum_vitae = factory.django.FileField(name="lol.txt")
-
-
-
-
-
+    email = factory.sequence(lambda x: str(random.randint(1, 100)) + "a@b.de" + str(x))
