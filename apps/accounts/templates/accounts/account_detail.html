@@ -23,9 +23,7 @@
 
                 <p class="md-body-2">Finished  {{ object.quest_set.count }} quests.</p>
             {% for badge in object.badge_set.all %}
-                {% thumbnail badge.thumbnail "50x50" crop="center" as im %}
-                    <img alt="{{ object }}" src="{{ im.url }}">
-                {% endthumbnail %}
+                    <img alt="{{ object }}" src="{{ badge.thumbnail.url }}" width="50px" height="50px">
             {% endfor %}
             </div>
     </div>
