@@ -1,0 +1,14 @@
+Playing games is an essential part of being human. The desire to discover new things and practice new skills drives us. Technology and games are often associated with "Couch Potatoes", but we think that modern devices have the potential to bring more people to explore their area, or even travel to distant countries.
+
+By posing riddles and challenges that are tied to specific geographic locations, and rewarding people who complete these challenges with points, we entice users to leave their couch and get active! We utilise the excitement that a little friendly competition brings and provide a ranking of explorers , keeping track of their achievements.
+
+We came together as a group of individuals with different skill sets and now deliver this fantastic app as a team of four. Each of us brought their share of talents to the table, and together we created something that none of us could have done alone.
+We decided that the web is the perfect delivery mechanism to approach as broad an audience as possible, without restrictions for different devices, and were fascinated by the possibilities that HTML5 offers to developers of mobile applications. Some of us know Python really well and develop the server backend with the django web framework, while others drew the graphical elements, and developed the frontend with AngularJS and HTML5.
+
+It was important for us to make it as easy as possible for take part in adventures and challenges, so we decided to use an registration mechanism that most people are familiar with: a Facebook account. It turned out to be challenging to integrate the authentication mechanism quickly, and a considerable amount of time was spent on this.
+
+We established a test driven development workflow very early on, which was a great for both stability of the application and the fun that we had during the development. We also worked with the Travis continuous integration platform and the coveralls coverage reporter on github. Good structure and one command deployments made it possible to move very quickly, implementing features that we initially thought optional.
+
+Tonight, we learned how to work in a cross functional team under time pressure, we learned how to rapidly prototype ideas and communicate our ideas to our team. We learned a lot about the possibilities of HTML5 and also gained some more insights into the inner workings of python libraries like social-auth and django.
+
+To make a PlaceVentura an attractive platform, we think it is of utmost importance to quickly enable users to create new Quests for others, because the best challenges are put up by explorers themselves. We would like this idea to spread to more cities, to bring more gamers from the couches into nature.
