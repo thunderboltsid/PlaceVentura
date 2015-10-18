@@ -25,6 +25,13 @@
 
 <body ng-app="eestec" style="display:flex;justify-content:center;align-items:center;align-content: center;">
 
+<md-button onclick="window.location = '/people'" class="md-fab" style="position: fixed; bottom: 0; right: 0; padding: 15px">
+<ng-md-icon icon="people" ></ng-md-icon>
+</md-button>
+<md-button onclick="window.location = '/badges'" class="md-fab" style="position: fixed; bottom: 0; left: 0; padding: 15px">
+<ng-md-icon icon="filter_vintage" ></ng-md-icon>
+</md-button>
+
 {% block content %}
 {% endblock %}
 {% verbatim %}
