@@ -1,22 +1,33 @@
 {% extends 'base/base.html' %}
 
+{% load static %}
 {% load thumbnail %}
 {% block content %}
-    <div layout="column">
-        <md-card style="padding:10px; width: 80vw;">
-            <div layout="column">
-                {% block pictures %}
-                    {% thumbnail object.thumbnail "375x225" crop="center" as im %}
-                        <img alt="{{ object }}" src="{{ im.url }}" width="{{ im.width }}" height="
+    <style>
+        body {
+            opacity: 0.9;
+        }
+    </style>
+    <img src="{% static 'common/questdetails.svg' %}"
+         style="position:fixed;
+         width:100%;
+         top:0;
+         left:0;
+         z-index: -1;
+         ">
+    <div layout="column" style="padding:10px; width: 80vw; opacity: 0.7">
+        <div layout="column">
+            {% block pictures %}
+                {% thumbnail object.thumbnail "375x225" crop="center" as im %}
+                    <img alt="{{ object }}" src="{{ im.url }}" width="{{ im.width }}" height="
         {{ im.height }}">
-                    {% endthumbnail %}
-                {% endblock %}
+                {% endthumbnail %}
+            {% endblock %}
 
-                <h1 class="md-display-1">{{ object.name }}</h1>
+            <h1 class="md-display-1">{{ object.name }}</h1>
 
-                <p class="md-body-2">Description : {{ object.description }}</p>
+            <p class="md-body-2" style="text-align: center">{{ object.description }}</p>
 
-            </div>
-        </md-card>
+        </div>
     </div>
 {% endblock %}
