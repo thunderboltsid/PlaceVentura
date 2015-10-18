@@ -33,10 +33,6 @@ def update_avatar(backend, details, response, social_user, uid,
 
 class AccountList(ListView):
     model = Account
-    def get_context_data(self, **kwargs):
-        context = super(AccountList, self).get_context_data(**kwargs)
-        context["object_list"] = list(context["object_list"]).sort(key= lambda x : x.quest_set.count())
-        return context
 
 
 
