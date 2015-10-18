@@ -1,3 +1,4 @@
+import re
 from urllib2 import urlopen
 
 from django.core.files.base import ContentFile
@@ -20,6 +21,11 @@ def update_avatar(backend, details, response, social_user, uid,
     if backend.name == 'facebook':
         url = "http://graph.facebook.com/%s/picture?type=large" % response['id']
         avatar = urlopen(url)
+        user.username=user.email
+        names=re.findall('[A-Z][^A-Z]*', user.username)
+        user.first_name=names[0]
+        user.last_name=names[-1]
+        user.save()
         user.thumbnail.save(user.email + " social" + '.jpg',
                                    ContentFile(avatar.read()))
         user.save()

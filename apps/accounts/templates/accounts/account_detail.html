@@ -1,1 +1,32 @@
-{% extends 'base/base.html'
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% load thumbnail %}
+{% block content %}
+    <img src="{% static 'accounts/mainpage.svg' %}"
+         style="position:fixed;
+         width:100%;
+         top:0;
+         left:0;
+         ">
+    <style type="text/css">body{align-items: flex-start !important;} </style>
+
+    <div layout="column" style="z-index:2">
+            <div layout="column" style="padding:20vw 17vw;">
+                {% block pictures %}
+                    {% thumbnail object.thumbnail "500x500" crop="center" as im %}
+                        <img alt="{{ object }}" src="{{ im.url }}" style="width:70vw;">
+                    {% endthumbnail %}
+                {% endblock %}
+
+                <h1 class="md-display-1" style="padding-top:20vw;">{{ object.first_name }}</h1>
+
+                <p class="md-body-2">Finished  {{ object.quest_set.count }} quests.</p>
+            {% for badge in object.badge_set.all %}
+                {% thumbnail badge.thumbnail "50x50" crop="center" as im %}
+                    <img alt="{{ object }}" src="{{ im.url }}">
+                {% endthumbnail %}
+            {% endfor %}
+            </div>
+    </div>
+{% endblock %}
