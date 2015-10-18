@@ -58,6 +58,9 @@
                         if (data.status == 0) {
                             $("#completeQuest").css("background-color", "#0F0");
                             $("#completeQuest").text(data.message);
+                            setTimeout(function () {
+                                window.location="/quests/";
+                            }, 5000);
                         } else {
                             $("#completeQuest").text(data.message);
                             if (data.message.indexOf("Good") < 0) {
