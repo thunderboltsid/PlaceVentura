@@ -28,7 +28,7 @@ class ResponseCreate(CreateView):
             resp = form.save(commit=False)
             resp.user = self.request.user
             if(in_range((resp.lat, resp.lng), (resp.quest.lat, resp.quest.lng), resp.quest.precision)):
-                resp.save(commit=True)
+                resp.save()
                 # super(ResponseCreate, self).form_valid(form)
                 return JsonResponse({"status":0,"message":"Good job!"})
             else:
